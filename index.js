@@ -1,12 +1,25 @@
 const express = require('express');
-const app = express();
 const socket = require('socket.io');
 var path = require('path');
 
-app.get('/', (req, res) => {
+//FrontEnd
+const site = express();
+
+site.get('/', (req, res) => {
   res.sendFile('./ServerSide.html', {root: __dirname })
 });
 
-app.listen(8080, () => {
-  console.log('server started');
+site.listen(8080, () => {
+  console.log('HTML Started');
+});
+
+//The Rest
+const app = express();
+
+app.get('/', (req, res) => {
+  res.sendFile('./PROTECTED/Protected-Hub.html', {root: __dirname })
+});
+
+app.listen(4500, () => {
+  console.log('Protected Started');
 });
