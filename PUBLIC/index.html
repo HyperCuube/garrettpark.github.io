@@ -12,7 +12,7 @@
       	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
       	<link rel="icon" href="https://garrettspage.com/STYLE/IMAGES/Icon.ico" />
       	<link rel="stylesheet" href="https://garrettspage.com/STYLE/Style.css" type="text/css" />
-      	<script type="text/javascript" src="https://server.garrettspage.com/Cookie.js"></script>
+      	<script type="text/javascript" src="https://private.garrettspage.com/STYLE/Common.js"></script>
     </head>
     <body>
         <div class="page" id="TOP" onload="onLoad()" >
@@ -62,22 +62,4 @@
             </div>
         </div>
     </body>
-	<script>
-		function onLoad(){
-			var code = accessCookie("login");
-			if (code != ""){
-				if (window.confirm("Test Cookie?"))
-					requestAccess(code);
-		}
-	
-		function requestAccess( string){
-			if (string != ""){
-				var pass = accessCookie(code);
-				if (window.confirm("Test Cookie?")){
-					
-				}
-			}
-			
-		}
-	</script>
 </html>

@@ -1,10 +1,13 @@
-var http = require('http');
-var nStatic = require('node-static');
-var fileServer = new nStatic.Server('./PUBLIC');
+const express = require('express');
+const app = express();
+app.use(express.static('PUBLIC'));
 
-http.createServer(function (req, res) {
-	console.log(req);
-	console.log(res);
-	fileServer.serve(req, res);
+//Enforce HTTPS
+app.use((req, res, next) => {
+	if (req.headers['x-forwarded-proto'] === 'http')
+		res.redirect(`https://private.garrettspage.com/` + req.url)
+});
 
-}).listen(8080);
+app.listen(8443, () => {
+	console.log('Server started');
+});
