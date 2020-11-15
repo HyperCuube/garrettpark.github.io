@@ -1,13 +1,10 @@
-const express = require('express');
-var path = require('path');
+var http = require('http');
+var nStatic = require('node-static');
+var fileServer = new nStatic.Server('./PUBLIC');
 
-//FrontEnd
-const site = express();
-
-site.get('/', (req, res) => {
-  res.sendFile('./ServerSide.html', {root: __dirname })
-});
-
-site.listen(8080, () => {
-  console.log('HTML Started');
-});
+http.createServer(function (req, res) {
+    console.log(req);
+	console.log(res);
+    fileServer.serve(req, res);
+    
+}).listen(8080);

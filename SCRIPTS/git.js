@@ -11,9 +11,23 @@ var options = {
 };
 
 function callback(error, response, body) {
-      console.log(response.statusCode);
-      console.error(error);
-      console.log(body);
+	switch(response,statusCode){
+		case "250":
+			return body;
+			break;
+		
+		case "404":
+			return error;
+			break;
+		
+		Default:
+			return "UNKOWN";
+			break;
+	}
+	
+	console.log(response.statusCode);
+    console.error(error);
+    console.log(body);
 }
 
 request(options, callback);
