@@ -1,3 +1,21 @@
+function onLoad(){
+		var code = accessCookie("login");
+		if (code != ""){
+			if (window.confirm("Test Cookie?"))
+				requestAccess(code);
+		}
+}
+
+function requestAccess( string){
+	if (string != ""){
+		var pass = accessCookie(code);
+		if (window.confirm("Test Cookie?")){
+			
+		}
+	}
+			
+}
+
 function createCookie(cookieName,cookieValue)
 {
   document.cookie = cookieName + "=" + cookieValue + 
