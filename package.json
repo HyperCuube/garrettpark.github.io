@@ -10,9 +10,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@replit/database": "^2.0.0",
+    "bcrypt": "^5.0.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.14",
+    "mongoose-unique-validator": "^2.0.3",
+    "mysql": "^2.18.1",
     "node-static": "^0.7.11",
+    "redis": "^3.0.2",
     "request": "^2.88.2",
-    "socket.io": "^3.0.1"
+    "socket.io": "^3.0.1",
+    "socketio-auth": "^0.1.1"
   }
 }
