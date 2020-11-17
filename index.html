@@ -71,7 +71,7 @@
         </div>
     </body>
 	<script>
-		var socket = io('https://private.garrettspage.com');
+		var socket = io('https://server.garrettspage.com');
 		$(document).ready(function(){
 			$("#Login_Register").click(function(){
 				socket.emit("login_register", {
