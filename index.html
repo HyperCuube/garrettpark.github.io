@@ -67,7 +67,7 @@
 		<script>
 			var socket = io('https://server.garrettspage.com');
 			$(document).ready(function(){
-				$("#submit").submit(function (e){
+				$("#submit").click(function (e){
 					e.preventDefault();
 					socket.emit("acc_send", {
 						user: $("#userName").val(),
