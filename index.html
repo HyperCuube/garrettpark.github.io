@@ -48,10 +48,11 @@
             <!-- Page Content -->
             <div class="body">
 				<center>
-					<form class="n_log_in" id="n_log_in" style="margin: 10%" >
+					<form class="n_log_in" id="n_log_in" >
 						<input type="text" autocomplete="username" id="userName" placeholder="Username" /><br>
 						<input type="password" autocomplete="current-password" id ="passWord" placeholder="Password" /><br>
 						<button type="submit" id="submit" >Login</button>
+						<p id="error" style="color: red" ></p>
 					</form>
 				</center>
             </div>
@@ -67,8 +68,13 @@
 		<script>
 			var socket = io('https://server.garrettspage.com');
 			$(document).ready(function(){
+				$("#error").hide();
 				$("#submit").click(function (e){
 					e.preventDefault();
+					if ($("#userName").val() == "") {
+						$("#error").text("Blank Username");
+						$("#error").show();
+					}
 					socket.emit("acc_send", {
 						user: $("#userName").val(),
 						pass: $("#passWord").val()
