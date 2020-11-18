@@ -48,8 +48,8 @@
             <!-- Page Content -->
             <div class="body">
                 <form class="n_log_in" id="n_log_in" >
-					<input type="text" id="username" placeholder="Username" /><br>
-					<input type="password" id ="current-password" placeholder="Password" /><br>
+					<input type="text" name="username" id="userName" placeholder="Username" /><br>
+					<input type="password" name="current-password" id ="passWord" placeholder="Password" /><br>
 					<button id="Login_Register">Login</button>
 				</form>
             </div>
@@ -69,8 +69,8 @@
 			$("#Login_Register").click(function(e){
 				e.preventDefault()
 				socket.emit("login_register", {
-					user: $("#username").val(),
-					pass: $("#current-password").val()
+					user: $("#userName").val(),
+					pass: $("#passWord").val()
 				});
 			});
 		});
