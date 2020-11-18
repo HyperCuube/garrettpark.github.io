@@ -51,7 +51,7 @@
 					<form class="n_log_in" id="n_log_in" style="margin: 10%" >
 						<input type="text" autocomplete="username" id="userName" placeholder="Username" /><br>
 						<input type="password" autocomplete="current-password" id ="passWord" placeholder="Password" /><br>
-						<button id="Login_Register">Login</button>
+						<button id="submit">Login</button>
 					</form>
 				</center>
             </div>
@@ -68,9 +68,9 @@
 	<script>
 		var socket = io('https://server.garrettspage.com');
 		$(document).ready(function(){
-			$("#Login_Register").click(function(e){
-				e.preventDefault()
-				socket.emit("login_register", {
+			$("#submit").click(function (e){
+				e.preventDefault();
+				socket.emit("acc_send", {
 					user: $("#userName").val(),
 					pass: $("#passWord").val()
 				});
@@ -89,9 +89,11 @@
 
 		socket.on("acc_disabled", function(){
 			alert("Account Disabled!");
+		});
 
 		socket.on("acc_error", function(){
 			alert("Error: Please try again!");
 		});
+		
 	</script>
 </html>
