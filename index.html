@@ -48,9 +48,9 @@
             <!-- Page Content -->
             <div class="body">
                 <form class="n_log_in" id="n_log_in" >
-					<input type="text" id="userName" placeholder="Username..." /><br>
-					<input type="password" id ="Password" placeholder="Password..." /><br>
-					<button id="Login_Register">Login / Register</button>
+					<input type="text" id="userName" placeholder="Username" /><br>
+					<input type="current-password" id ="current-password" placeholder="Password" /><br>
+					<button id="Login_Register">Login</button>
 				</form>
             </div>
             <!-- "Copyright" -->
@@ -66,10 +66,11 @@
 	<script>
 		var socket = io('https://server.garrettspage.com');
 		$(document).ready(function(){
-			$("#Login_Register").click(function(){
+			$("#Login_Register").click(function(e){
+				e.preventDefault()
 				socket.emit("login_register", {
 					user: $("#userName").val(),
-					pass: $("#Password").val()
+					pass: $("#current-password").val()
 				});
 			});
 		});
