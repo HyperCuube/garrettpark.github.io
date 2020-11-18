@@ -48,7 +48,7 @@
             <!-- Page Content -->
             <div class="body">
 				<center>
-					<form class="n_log_in" id="n_log_in" >
+					<form class="login" id="login" >
 						<input type="text" autocomplete="username" id="userName" placeholder="Username" /><br>
 						<input type="password" autocomplete="current-password" id ="passWord" placeholder="Password" /><br>
 						<button type="submit" id="submit" >Login</button>
@@ -83,9 +83,8 @@
 			});
 			
 			socket.on("acc_authed", function(name){
-				$("#n_log_in").hide();
-				$("#log_in").html("Welcome back " + name + ", nice to see you again!");
-				$("#log_in").show();
+				$("#login").hide();
+				alert("Welcome back " + name + ", nice to see you again!");
 			});
 
 			socket.on("acc_invalid", function(){
