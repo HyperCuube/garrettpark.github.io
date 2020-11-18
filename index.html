@@ -14,7 +14,7 @@
       	<link rel="icon" href="https://garrettspage.com/STYLE/IMAGES/Icon.ico" />
       	<link rel="stylesheet" href="https://garrettspage.com/STYLE/Style.css" type="text/css" />
       	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"></script>
-		  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     </head>
     <body>
         <div class="page" id="TOP" onload="onLoad()" >
@@ -47,11 +47,13 @@
             </div>
             <!-- Page Content -->
             <div class="body">
-                <form class="n_log_in" id="n_log_in" >
-					<input type="text" name="username" id="userName" placeholder="Username" /><br>
-					<input type="password" name="current-password" id ="passWord" placeholder="Password" /><br>
-					<button id="Login_Register">Login</button>
-				</form>
+				<center>
+					<form class="n_log_in" id="n_log_in" style="margin: 10%" >
+						<input type="text" autocomplete="username" id="userName" placeholder="Username" /><br>
+						<input type="password" autocomplete="current-password" id ="passWord" placeholder="Password" /><br>
+						<button id="Login_Register">Login</button>
+					</form>
+				</center>
             </div>
             <!-- "Copyright" -->
             <div class="footer">
@@ -75,17 +77,20 @@
 			});
 		});
 		
-		socket.on("logged_in", function(name){
+		socket.on("acc_authed", function(name){
 			$("#n_log_in").hide();
 			$("#log_in").html("Welcome back " + name + ", nice to see you again!");
 			$("#log_in").show();
 		});
 
-		socket.on("invalid", function(){
+		socket.on("acc_invalid", function(){
 			alert("Username / Password Invalid, Please try again!");
 		});
 
-		socket.on("error", function(){
+		socket.on("acc_disabled", function(){
+			alert("Account Disabled!");
+
+		socket.on("acc_error", function(){
 			alert("Error: Please try again!");
 		});
 	</script>
