@@ -59,8 +59,9 @@
 		});
 		
 		socket.on("acc_authed", function(name, other){
-			If (name == "link")
+			if (name == "link") {
 				window.open(other, '_self');
+			}
 			$("#login").hide();
 			alert("Welcome back " + name + ", nice to see you again!");
 		});
